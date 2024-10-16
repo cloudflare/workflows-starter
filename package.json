@@ -7,7 +7,7 @@
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20241011.0",
 		"typescript": "^5.0.4",
-		"wrangler": "workflows"
+		"wrangler": "^3.8.0"
 	},
 	"packageManager": "pnpm@9.1.4",
 	"engines": {

@@ -1,8 +1,8 @@
 import { WorkflowEntrypoint, WorkflowStep, WorkflowEvent } from 'cloudflare:workers';
 
 type Env = {
-	// Add your bindings here, e.g. KV, D1, AI, etc.
-	MYWORKFLOW: Workflow;
+	// Add your bindings here, e.g. Workers KV, D1, Workers AI, etc.
+	MY_WORKFLOW: Workflow;
 };
 
 // User-defined params passed to your workflow
@@ -42,20 +42,21 @@ export class MyWorkflow extends WorkflowEntrypoint<Env, Params> {
 
 		await step.do(
 			'make a call to write that could maybe, just might, fail',
-			// {
-			// 	retries: {
-			// 		limit: 5,
-			// 		delay: '5 second',
-			// 		backoff: 'exponential',
-			// 	},
-			// 	timeout: '15 minutes',
-			// },
+			// Define a retry strategy
+			{
+				retries: {
+					limit: 5,
+					delay: '5 second',
+					backoff: 'exponential',
+				},
+				timeout: '15 minutes',
+			},
 			async () => {
-				// Do stuff here, with access to my_value!
+				// Do stuff here, with access to the state from our previous steps
 				if (Math.random() > 0.5) {
 					throw new Error('API call to $STORAGE_SYSTEM failed');
 				}
-			}
+			},
 		);
 	}
 }
@@ -66,15 +67,14 @@ export default {
 
 		// Get the status of an existing instance, if provided
 		if (id) {
-			let instance = await env.MYWORKFLOW.get(id);
+			let instance = await env.MY_WORKFLOW.get(id);
 			return Response.json({
 				status: await instance.status(),
 			});
 		}
 
 		// Spawn a new instance and return the ID and status
-		const newId = await crypto.randomUUID();
-		let instance = await env.MYWORKFLOW.create(newId, {});
+		let instance = await env.MY_WORKFLOW.create();
 		return Response.json({
 			id: instance.id,
 			details: await instance.status(),
