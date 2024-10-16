@@ -1,0 +1,17 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "workflows-starter"
+main = "src/index.ts"
+compatibility_date = "2024-10-16"
+# this flag is required
+compatibility_flags = ["experimental"]
+
+[[workflows]]
+# name of your workflow
+name = "workflows-starter"
+# binding name env.MYWORKFLOW
+binding = "MY_WORKFLOW"
+# this is class that extends the Workflow class in src/index.ts
+class_name = "MyWorkflow"
+# script_name is required during for the beta.
+ # Must match the "name" of your Worker at the top of wrangler.toml
+script_name = "workflows-starter" 

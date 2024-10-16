@@ -1,0 +1,21 @@
+{
+	"name": "workflows-starter",
+	"version": "0.0.1",
+	"scripts": {
+		"deploy": "wrangler deploy"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20241011.0",
+		"typescript": "^5.0.4",
+		"wrangler": "workflows"
+	},
+	"packageManager": "pnpm@9.1.4",
+	"engines": {
+		"pnpm": "^9.1.4"
+	},
+	"pnpm": {
+		"overrides": {
+			"esbuild": "0.21.4"
+		}
+	}
+}
