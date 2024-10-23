@@ -1,7 +1,7 @@
 #:schema node_modules/wrangler/config-schema.json
 name = "workflows-starter"
 main = "src/index.ts"
-compatibility_date = "2024-10-21"
+compatibility_date = "2024-10-22"
 
 [observability]
 enabled = true
