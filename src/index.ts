@@ -63,9 +63,14 @@ export class MyWorkflow extends WorkflowEntrypoint<Env, Params> {
 
 export default {
 	async fetch(req: Request, env: Env): Promise<Response> {
-		let id = new URL(req.url).searchParams.get('instanceId');
+		let url = new URL(req.url);
+
+		if (url.pathname.startsWith('/favicon')) {
+			return Response.json({}, { status: 404 });
+		}
 
 		// Get the status of an existing instance, if provided
+		let id = url.searchParams.get('instanceId');
 		if (id) {
 			let instance = await env.MY_WORKFLOW.get(id);
 			return Response.json({
