@@ -8,7 +8,9 @@ This is the starter template for Workflows, a durable execution engine built on 
 
 ## Usage
 
-Visit the [get started guide](https://developers.cloudflare.com/workflows/get-started/guide/) for Workflows to create and deploy your first Workflow.
+**Visit the [get started guide](https://developers.cloudflare.com/workflows/get-started/guide/) for Workflows to create and deploy your first Workflow.**
+
+### Example
 
 You can create a project using this template by using `npm create cloudflare@latest`:
 
@@ -19,9 +21,6 @@ npm create cloudflare@latest workflows-starter -- --template "cloudflare/workflo
 This will automatically clone this repository, install the dependencies, and prompt you to optionally deploy:
 
 ```sh
-➜  npm create cloudflare@latest workflows-tutorial -- --template="cloudflare/workflows-starter"
-
-──────────────────────────────────────────────────────────────────────────────────────────────────────────
 ╭ Create an application with Cloudflare Step 1 of 3
 │
 ├ In which directory do you want to create your application?
