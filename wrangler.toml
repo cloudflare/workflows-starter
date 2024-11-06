@@ -1,3 +1,4 @@
+# <docs-tag name="workflows-wrangler.toml">
 #:schema node_modules/wrangler/config-schema.json
 name = "workflows-starter"
 main = "src/index.ts"
@@ -14,3 +15,4 @@ name = "workflows-starter"
 binding = "MY_WORKFLOW"
 # this is class that extends the Workflow class in src/index.ts
 class_name = "MyWorkflow"
+# </docs-tag name="workflows-wrangler.toml">
