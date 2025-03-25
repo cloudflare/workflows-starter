@@ -10,9 +10,13 @@ This is the starter template for Workflows, a durable execution engine built on 
 
 **Visit the [get started guide](https://developers.cloudflare.com/workflows/get-started/guide/) for Workflows to create and deploy your first Workflow.**
 
-### Example
+### Deploy it
 
-You can create a project using this template by using `npm create cloudflare@latest`:
+Deploy it to your own Cloudflare account directly:
+
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/workflows-starter)
+
+You can also create a project using this template by using `npm create cloudflare@latest`:
 
 ```sh
 npm create cloudflare@latest workflows-starter -- --template "cloudflare/workflows-starter"
