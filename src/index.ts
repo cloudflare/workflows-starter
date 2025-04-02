@@ -35,6 +35,14 @@ export class MyWorkflow extends WorkflowEntrypoint<Env, Params> {
 			};
 		});
 
+		// You can optionally have a Workflow wait for additional data:
+		// human approval or an external webhook or HTTP request, before progressing.
+		// You can submit data via HTTP POST to /accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}/events/{eventName}
+		const waitForApproval = await step.waitForEvent('request-approval', {
+			type: 'approval', // define an optional key to switch on
+			timeout: '1 minute', // keep it short for the example!
+		});
+
 		const apiResponse = await step.do('some other step', async () => {
 			let resp = await fetch('https://api.cloudflare.com/client/v4/ips');
 			return await resp.json<any>();
