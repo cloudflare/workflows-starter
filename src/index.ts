@@ -18,6 +18,7 @@ export class MyWorkflow extends WorkflowEntrypoint<Env, Params> {
 		// Can access bindings on `this.env`
 		// Can access params on `event.payload`
 
+		console.info(`starting workflow: ${event.instanceId}`);
 		const files = await step.do('my first step', async () => {
 			// Fetch a list of files from $SOME_SERVICE
 			return {
